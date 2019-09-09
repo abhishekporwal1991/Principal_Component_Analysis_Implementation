@@ -113,3 +113,48 @@ To the the principal components from the given data there are certain steps to f
 2. Compute the covariance matrix of the dataset -  
 
 ![Imgur](https://i.imgur.com/Rd1e5RR.jpg)
+
+shape of the matrix is 13 x 13 as te=he data have 13 features.
+
+Graphical representation of correlation matrix -
+![Imgur](https://i.imgur.com/R5EsMrS.jpg)
+
+3. Compute eigenvectors and corresponding eigenvalues -
+
+![Imgur](https://i.imgur.com/Jh1vfsF.jpg)
+
+4. Sort the eigenvectors by decreasing eigenvalues and choose k eigenvectors with the largest eigenvalue to form a d x k dimensional matrix W -
+
+![Imgur](https://i.imgur.com/iNVbVAh.jpg)
+
+![Imgur](https://i.imgur.com/NcplUks.jpg)
+
+5. Use this d x k eigenvector matrix to transform the samples onto the new subspace -
+
+![Imgur](https://i.imgur.com/CKLtv0G.jpg)
+
+
+### Visualizing PCA
+For visualization purpose target variable is been binned into 3 price range categories i.e. low (0-1st quartile), medium(1-3rd quartile) and high(3rd quartile & more). 
+
+![Imgur](https://i.imgur.com/k7mNpgh.jpg)
+
+
+#### Scree Plot
+Scree plot is a plot to visualize the cumulative percentage variance explained by the principal components. Two principal components cumulatively explaining approx. 60% variance in the target variable.
+
+![Imgur](https://i.imgur.com/WMm0w1j.jpg) 
+
+### Conclusion
+PCA can be used as an effective tool for dimensionality reduction. As the results are showing that we can able to explain upto 90% of variance just using 8 features out of 13 features.
+
+One of the drawback of the technique is that it makes independent variable less interpretable. 
+
+### References
+[Eigenvectors and eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g)  
+[Vector Projection](https://www.ck12.org/book/CK-12-College-Precalculus/section/9.6/)  
+[Covariance matrix](https://www.visiondummy.com/2014/04/geometric-interpretation-covariance-matrix/#id3483335494)  
+[Spectral Theorem](https://www.youtube.com/watch?v=13r9QY6cmjc&list=PL49CF3715CB9EF31D&index=22)  
+[Understaning PCA 1](https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c)  
+[Understanding PCA 2](https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues)  
+[Implementing PCA](https://sebastianraschka.com/Articles/2014_pca_step_by_step.html)
