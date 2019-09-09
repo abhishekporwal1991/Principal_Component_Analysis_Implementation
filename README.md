@@ -77,13 +77,24 @@ The dataset we are using is `Boston Pricing Data`. The data was drawn from the B
 | LSTAT       | % lower status of the population                             |
 | MEDV        | Median value of owner-occupied homes in dollor 1000          |
 
-Following line of code is used to import the data into jupyter notebook:
-
+Following line of code is used to import the data into jupyter notebook:  
 ![Imgur](https://i.imgur.com/Ky2gjVP.jpg)
 
 ### Understanding the dataset (EDA)
 A data scientist should have a thorough understanding of the dataset before using it from any machine learning task. Performance of any ML algorithm largely dependent on the input data.
 
 #### Exploratory Data Analysis (EDA)
-* Data do not have any missing value:
+* Data do not have any missing value:  
 ![Imgur](https://i.imgur.com/DIXJnYr.jpg) 
+
+* `Histograms`: Histograms are helpful in identifying the distribution of the individual variables. As you can see, most of features are not following the normal distribution and are skewed. Histogram for different features: 
+![Imgur](https://i.imgur.com/WIVWr9M.jpg)
+
+* `Boxplot`: Boxplots also helpful in identification of data distribution but you can also check that do the variable contain any outlier in the data. Boxplots of different features are as follows:  
+![Imgur](https://i.imgur.com/lqUOHha.jpg)
+
+* `Target distribution`: Target variable is almost following a normal distribution. Figure below -  
+![Imgur](https://i.imgur.com/hUsG80G.jpg)
+
+* `Correlation Matrix`: This matrix is used to identify the correlation between the features. It can be seen that some of the variables are highly correlated with each other and will cause the problem of multicollinearity if any two highly correlated variables are added to the model. Correlation matrix is shown below -   
+![Imgur](https://i.imgur.com/fdkDoUU.jpg)
