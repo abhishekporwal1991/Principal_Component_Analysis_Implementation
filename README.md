@@ -3,7 +3,7 @@ Understanding of Principal Component Analysis (PCA) and Implementation from scra
 
 
 ## What is PCA and need of PCA?
-PCA stands for Principal Component Analysis. In a day to day machine learning tasks you might have encountered a problem of high dimensionality of the dataset (telecom/banking data). The problem with such a data is that it leads to overfitting problem in the model. The available features are highly correlated with each other and are redundant to the model. Adding these variables to the model increase the complexity of the model as well as inflate the model coefficients (Multicollinearity).
+PCA stands for Principal Component Analysis. In a day to day machine learning tasks you might have encountered a problem of high dimensionality of the dataset (telecom/banking data). The problem with such a data is that it leads to overfitting problem in the model. The available features are generally highly correlated with each other and are redundant to the model. Adding these variables to the model increase the complexity of the model as well as inflate the model coefficients (Multicollinearity).
 
 The solution to the problem is to reduce the dimensionality of the dataset and PCA is one such technique.
 PCA is a method of summarizing data with fewer characteristics. It constructs some new characteristics. These new characteristics are constructed using the old ones (Linear combinations).
@@ -14,12 +14,17 @@ Understanding of PCA required understanding of several small small concepts. We 
 ![Imgur](https://i.imgur.com/9JL4VLf.jpg)
 
 
-### Prerequisites
+## Prerequisites
 There are some prerequisites to fully understand the PCA like -
 * Linear Algebra
 * Projection of vector onto another vector
 * Covariance matrix
 * Eigen-decomposition (Spectral Theorem)
+
+### Linear Algebra
+Understanding of [Linear transformations](https://www.youtube.com/watch?v=kYB8IZa5AuE&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=4&t=0s), [determinant](https://www.youtube.com/watch?v=Ip3X9LOh2dk&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=7&t=0s), [change of basis](https://www.youtube.com/watch?v=P2LTAUO1TdA),  and [eigenvectors & eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g) are essential to understand PCA. 
+
+In simplistic words, Eigenvectors are those vectors which won't change direction in case of linear transformation. They only scaled up/down as per corresponding eigenvalue of the eigenvector. The linear transformations are very helpful sometime to reduce the complexity of the problem. This makes eigenvectors even more important topic to understand linear algebra.
 
 ### Vector Projection
 ![Imgur](https://i.imgur.com/GGLsuVg.jpg)
@@ -55,7 +60,7 @@ In other words, the largest eigenvector of the covariance matrix always points i
 We can convert our covariance matrix to the form ![Imgur](https://i.imgur.com/QBM5YjX.jpg) using the [Spectral theorem](https://en.wikipedia.org/wiki/Spectral_theorem) where P is the matrix of eigenvectors and D is the diagonal matrix with eigenvalues on the diagonal and values of zero everywhere else. The eigenvalues on the diagonal of D will be associated with the corresponding column in P.
 ![Imgur](https://i.imgur.com/QBM5YjX.jpg) form is called the eigendecomposition of the covariance matrix.
 
-### Importing data for implementing PCA
+## Importing data for implementing PCA
 As we have understood the prerequisites of PCA, now we need a dataset to implement our understanding. We are going to use python jupyter notebook for the implementation of PCA.
 
 The dataset we are using is `Boston Pricing Data`. The data was drawn from the Boston Standard Metropolitan Statistical Area (SMSA) in 1970. The dataset contains 506 observations, 13 features and 1 target variable. The variable description is given below -  
@@ -80,22 +85,22 @@ The dataset we are using is `Boston Pricing Data`. The data was drawn from the B
 Following line of code is used to import the data into jupyter notebook:  
 ![Imgur](https://i.imgur.com/Ky2gjVP.jpg)
 
-### Understanding the dataset (EDA)
+## Understanding the dataset (EDA)
 A data scientist should have a thorough understanding of the dataset before using it from any machine learning task. Performance of any ML algorithm largely dependent on the input data.
 
-#### Exploratory Data Analysis (EDA)
+### Exploratory Data Analysis (EDA)
 * Data do not have any missing value:  
 ![Imgur](https://i.imgur.com/DIXJnYr.jpg) 
 
-* `Histograms`: Histograms are helpful in identifying the distribution of the individual variables. As you can see, most of features are not following the normal distribution and are skewed. Histogram for different features: 
+* `Histograms`: Histograms can be used to visualize the distribution of the individual variables. As you can see, most of features are not following the normal distribution and are skewed. Histogram for different features: 
 
 ![Imgur](https://i.imgur.com/WIVWr9M.jpg)
 
-* `Boxplot`: Boxplots also helpful in identification of data distribution but you can also check that do the variable contain any outlier in the data. Boxplots of different features are as follows:  
+* `Boxplot`: Boxplots are also useful in visualizing distribution of data. Information of existing outliers in the data can also be visualized through the boxplots. Boxplots of different features are as follows:  
 
 ![Imgur](https://i.imgur.com/lqUOHha.jpg)
 
-* `Target distribution`: Target variable is almost following a normal distribution. Figure below -  
+* `Target distribution`: Distribution of target variable is close to the normal distribution. Figure below -  
 
 ![Imgur](https://i.imgur.com/hUsG80G.jpg)
 
@@ -103,7 +108,7 @@ A data scientist should have a thorough understanding of the dataset before usin
 
 ![Imgur](https://i.imgur.com/fdkDoUU.jpg)
 
-### Getting Principal Components
+## Getting Principal Components
 To the the principal components from the given data there are certain steps to follow - 
 
 1. Compute the d-dimensional mean vector where d in the number of features in the datadet -
@@ -133,24 +138,28 @@ Graphical representation of correlation matrix -
 
 ![Imgur](https://i.imgur.com/CKLtv0G.jpg)
 
+### PCA using sklearn library
+PCA is implemented using the sklearn.decomposition library for comparison purpose. Similar results are achieved using this in built implementation - 
 
-### Visualizing PCA
+![Imgur](https://i.imgur.com/9ZBFObb.jpg) 
+
+## Visualizing PCA
 For visualization purpose target variable is been binned into 3 price range categories i.e. low (0-1st quartile), medium(1-3rd quartile) and high(3rd quartile & more). 
 
 ![Imgur](https://i.imgur.com/k7mNpgh.jpg)
 
 
-#### Scree Plot
-Scree plot is a plot to visualize the cumulative percentage variance explained by the principal components. Two principal components cumulatively explaining approx. 60% variance in the target variable.
+### Scree Plot
+Scree plot is a plot to visualize the cumulative percentage variance explained by the principal components. Two principal components cumulatively explaining approx. 60% variance of the target variable.
 
 ![Imgur](https://i.imgur.com/WMm0w1j.jpg) 
 
-### Conclusion
+## Conclusion
 PCA can be used as an effective tool for dimensionality reduction. As the results are showing that we can able to explain upto 90% of variance just using 8 features out of 13 features.
 
 One of the drawback of the technique is that it makes independent variable less interpretable. 
 
-### References
+## References
 [Eigenvectors and eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g)  
 [Vector Projection](https://www.ck12.org/book/CK-12-College-Precalculus/section/9.6/)  
 [Covariance matrix](https://www.visiondummy.com/2014/04/geometric-interpretation-covariance-matrix/#id3483335494)  
