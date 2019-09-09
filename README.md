@@ -88,13 +88,28 @@ A data scientist should have a thorough understanding of the dataset before usin
 ![Imgur](https://i.imgur.com/DIXJnYr.jpg) 
 
 * `Histograms`: Histograms are helpful in identifying the distribution of the individual variables. As you can see, most of features are not following the normal distribution and are skewed. Histogram for different features: 
+
 ![Imgur](https://i.imgur.com/WIVWr9M.jpg)
 
 * `Boxplot`: Boxplots also helpful in identification of data distribution but you can also check that do the variable contain any outlier in the data. Boxplots of different features are as follows:  
+
 ![Imgur](https://i.imgur.com/lqUOHha.jpg)
 
 * `Target distribution`: Target variable is almost following a normal distribution. Figure below -  
+
 ![Imgur](https://i.imgur.com/hUsG80G.jpg)
 
 * `Correlation Matrix`: This matrix is used to identify the correlation between the features. It can be seen that some of the variables are highly correlated with each other and will cause the problem of multicollinearity if any two highly correlated variables are added to the model. Correlation matrix is shown below -   
+
 ![Imgur](https://i.imgur.com/fdkDoUU.jpg)
+
+### Getting Principal Components
+To the the principal components from the given data there are certain steps to follow - 
+
+1. Compute the d-dimensional mean vector where d in the number of features in the datadet -
+
+![Imgur](https://i.imgur.com/fM7lw5V.jpg)
+
+2. Compute the covariance matrix of the dataset -  
+
+![Imgur](https://i.imgur.com/Rd1e5RR.jpg)
