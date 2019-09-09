@@ -89,11 +89,11 @@ Following line of code is used to import the data into jupyter notebook:
 
 ![Imgur](https://i.imgur.com/4rIgAKq.jpg)
 
-## Understanding the dataset (EDA)
+## Understanding the dataset
 A data scientist should have a thorough understanding of the dataset before using it from any machine learning task. Performance of any ML algorithm largely dependent on the input data.
 
 ### Exploratory Data Analysis (EDA)
-* `Missing values`:Data do not have any missing value:  
+* `Missing values`: Data do not have any missing value:  
 
 ![Imgur](https://i.imgur.com/Jn2JC1X.jpg)
 
