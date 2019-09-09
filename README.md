@@ -49,7 +49,7 @@ These four values can be summarized in a matrix, called the covariance matrix:
 ![Imgur](https://i.imgur.com/cbZZz43.jpg)
 
 If x is positively correlated with y, y is also positively correlated with x. In other words, we can state that Var(x,y) = Var(y,x). Therefore, the covariance matrix is always a `symmetric matrix` with the variances on its diagonal and the covariances off-diagonal. Two-dimensional normally distributed data is explained completely by its mean and its 2 x 2 covariance matrix. Similarly, a 3 x 3 covariance matrix is used to capture the spread of three-dimensional data, and a N x N covariance matrix captures the spread of N-dimensional data.  
-![Imgur](https://i.imgur.com/uaDHT9S.jpg)
+![Imgur](https://i.imgur.com/uaDHT9S.jpg)  
 Figure - The covariance matrix defines the shape of the data
 
 ### Eigendecomposition of covariance matrix
