@@ -22,38 +22,40 @@ There are some prerequisites to fully understand the PCA like -
 * Eigen-decomposition (Spectral Theorem)
 
 ### Linear Algebra
-Understanding of [Linear transformations](https://www.youtube.com/watch?v=kYB8IZa5AuE&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=4&t=0s), [determinant](https://www.youtube.com/watch?v=Ip3X9LOh2dk&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=7&t=0s), [change of basis](https://www.youtube.com/watch?v=P2LTAUO1TdA),  and [eigenvectors & eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g) are essential to understand PCA. 
+Understanding of [Linear transformations](https://www.youtube.com/watch?v=kYB8IZa5AuE&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=4&t=0s), [determinant](https://www.youtube.com/watch?v=Ip3X9LOh2dk&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=7&t=0s), [change of basis](https://www.youtube.com/watch?v=P2LTAUO1TdA) and [eigenvectors & eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g) are essential to understand PCA. 
 
-In simplistic words, Eigenvectors are those vectors which won't change direction in case of linear transformation. They only scaled up/down as per corresponding eigenvalue of the eigenvector. The linear transformations are very helpful sometime to reduce the complexity of the problem. This makes eigenvectors even more important topic to understand linear algebra.
+In simplistic words, Eigenvectors are those vectors which won't change direction in case of linear transformation. They only scaled up/down as per corresponding eigenvalue of the eigenvector. The linear transformations are very helpful sometime to reduce the complexity of the problem. This makes eigenvectors even more important to understand linear algebra.
 
 ### Vector Projection
 ![Imgur](https://i.imgur.com/GGLsuVg.jpg)
 
 
-The definition of vector projection for the indicated red vector is the called projuv. When you read projuv, you should say "the vector projection of v onto u." This implies that the new vector is going in the direction of u. The vector projection is the vector produced when one vector is resolved into two component vectors, one that is parallel to the 2nd vector and one that is perpendicular to the 2nd vector. The parallel vector is the vector projection.
+The definition of vector projection for the indicated red vector is the called ![Imgur](https://i.imgur.com/9CtZlBZ.jpg). When you read ![Imgur](https://i.imgur.com/9CtZlBZ.jpg), you should say "the vector projection of v onto u." This implies that the new vector is going in the direction of u. The vector projection is the vector produced when one vector is resolved into two component vectors, one that is parallel to the 2nd vector and one that is perpendicular to the 2nd vector. The parallel vector is the vector projection.
 
 Formula for vector projection is -   
 ![Imgur](https://i.imgur.com/0b2pO3f.jpg) 
 
-Projection of vector v onto another vector U in matrix form is -  
+Projection of vector `v` onto another vector `u` in matrix form is -  
 ![Imgur](https://i.imgur.com/0WLVbSw.jpg)
 
 ### Covariance Matrix
-Variance can only be used to explain the spread of the data in the directions parallel to the axes of the feature space. Consider the 2D feature space shown by figure:  
-![Imgur](https://i.imgur.com/gij2KhB.jpg)
+Variance can be used to explain the spread of the data in the directions parallel to the axes of the feature space. Consider the 2D feature space shown by figure:  
+![Imgur](https://i.imgur.com/gij2KhB.jpg)  
+Figure - The diagonal spread of the data is captured by the covariance
 
-For this data, we could calculate the variance Var(x,x) in the x-direction and the variance Var(y,y) in the y-direction. However, the horizontal spread and the vertical spread of the data does not explain the clear diagonal correlation. Figure 2 clearly shows that on average, if the x-value of a data point increases, then also the y-value increases, resulting in a positive correlation. This correlation can be captured by extending the notion of variance to what is called the ‘covariance’ of the data.  
+For this data, we could calculate the variance Var(x,x) in the x-direction and the variance Var(y,y) in the y-direction. However, the horizontal spread and the vertical spread of the data does not explain the clear diagonal correlation. Figure above clearly shows that on average, if the x-value of a data point increases, then also the y-value increases, resulting in a positive correlation. This correlation can be captured by extending the notion of variance to what is called the ‘covariance’ of the data.  
 
 These four values can be summarized in a matrix, called the covariance matrix:  
 ![Imgur](https://i.imgur.com/cbZZz43.jpg)
 
-If x is positively correlated with y, y is also positively correlated with x. In other words, we can state that Var(x,y) = Var(y,x). Therefore, the covariance matrix is always a symmetric matrix with the variances on its diagonal and the covariances off-diagonal. Two-dimensional normally distributed data is explained completely by its mean and its 2 x 2 covariance matrix. Similarly, a 3 x 3 covariance matrix is used to capture the spread of three-dimensional data, and a N x N covariance matrix captures the spread of N-dimensional data.  
+If x is positively correlated with y, y is also positively correlated with x. In other words, we can state that Var(x,y) = Var(y,x). Therefore, the covariance matrix is always a `symmetric matrix` with the variances on its diagonal and the covariances off-diagonal. Two-dimensional normally distributed data is explained completely by its mean and its 2 x 2 covariance matrix. Similarly, a 3 x 3 covariance matrix is used to capture the spread of three-dimensional data, and a N x N covariance matrix captures the spread of N-dimensional data.  
 ![Imgur](https://i.imgur.com/uaDHT9S.jpg)
+Figure - The covariance matrix defines the shape of the data
 
 ### Eigendecomposition of covariance matrix
 The covariance matrix defines both the spread (variance), and the orientation (covariance) of our data. So, if we would like to represent the covariance matrix with a vector and its magnitude, we should simply try to find the vector that points into the direction of the largest spread of the data, and whose magnitude equals the spread (variance) in this direction.
 
-If we define this vector as ![Imgur](https://i.imgur.com/kfgPtLX.jpg), then the projection of our data ![Imgur](https://i.imgur.com/2YdqrdT.jpg) onto this vector is obtained as ![Imgur](https://i.imgur.com/Bm2PIvh.jpg), and the variance of the projected data is ![Imgur](https://i.imgur.com/6yeKmUd.jpg). Since we are looking for the vector ![Imgur](https://i.imgur.com/kfgPtLX.jpg) that points into the direction of the largest variance, we should choose its components such that the covariance matrix ![Imgur](https://i.imgur.com/6yeKmUd.jpg) of the projected data is as large as possible. Maximizing any function of the form ![Imgur](https://i.imgur.com/6yeKmUd.jpg) with respect to ![Imgur](https://i.imgur.com/kfgPtLX.jpg), where ![Imgur](https://i.imgur.com/kfgPtLX.jpg) is a normalized unit vector, can be formulated as a so called Rayleigh Quotient. The maximum of such a Rayleigh Quotient is obtained by setting ![Imgur](https://i.imgur.com/kfgPtLX.jpg) equal to the largest eigenvector of matrix ![Imgur](https://i.imgur.com/WKIeUQy.jpg).
+If we define this vector as ![Imgur](https://i.imgur.com/kfgPtLX.jpg), then the projection of our data ![Imgur](https://i.imgur.com/2YdqrdT.jpg) onto this vector is obtained as ![Imgur](https://i.imgur.com/Bm2PIvh.jpg), and the variance of the projected data is ![Imgur](https://i.imgur.com/6yeKmUd.jpg)[[source]](https://stats.stackexchange.com/questions/32174/pca-objective-function-what-is-the-connection-between-maximizing-variance-and-m/136072#136072). Since we are looking for the vector ![Imgur](https://i.imgur.com/kfgPtLX.jpg) that points into the direction of the largest variance, we should choose its components such that the covariance matrix ![Imgur](https://i.imgur.com/6yeKmUd.jpg) of the projected data is as large as possible. Maximizing any function of the form ![Imgur](https://i.imgur.com/6yeKmUd.jpg) with respect to ![Imgur](https://i.imgur.com/kfgPtLX.jpg), where ![Imgur](https://i.imgur.com/kfgPtLX.jpg) is a normalized unit vector, can be formulated as a so called [Rayleigh Quotient](https://en.wikipedia.org/wiki/Rayleigh_quotient). The maximum of such a Rayleigh Quotient is obtained by setting ![Imgur](https://i.imgur.com/kfgPtLX.jpg) equal to the largest eigenvector of matrix ![Imgur](https://i.imgur.com/WKIeUQy.jpg).
 
 In other words, the largest eigenvector of the covariance matrix always points into the direction of the largest variance of the data, and the magnitude of this vector equals the corresponding eigenvalue.
 
@@ -61,7 +63,7 @@ We can convert our covariance matrix to the form ![Imgur](https://i.imgur.com/QB
 ![Imgur](https://i.imgur.com/QBM5YjX.jpg) form is called the eigendecomposition of the covariance matrix.
 
 ## Importing data for implementing PCA
-As we have understood the prerequisites of PCA, now we need a dataset to implement our understanding. We are going to use python jupyter notebook for the implementation of PCA.
+As we have understood the prerequisites of PCA, now we need a dataset to implement our understanding. We are going to use python jupyter notebook for the [implementation of PCA](https://github.com/abhishekporwal1991/Principal_Component_Analysis_Implementation/blob/master/PCA_Boston_Pricing_data.ipynb).
 
 The dataset we are using is `Boston Pricing Data`. The data was drawn from the Boston Standard Metropolitan Statistical Area (SMSA) in 1970. The dataset contains 506 observations, 13 features and 1 target variable. The variable description is given below -  
 
@@ -82,59 +84,65 @@ The dataset we are using is `Boston Pricing Data`. The data was drawn from the B
 | LSTAT       | % lower status of the population                             |
 | MEDV        | Median value of owner-occupied homes in dollor 1000          |
 
-Following line of code is used to import the data into jupyter notebook:  
-![Imgur](https://i.imgur.com/Ky2gjVP.jpg)
+
+Following line of code is used to import the data into jupyter notebook:    
+
+![Imgur](https://i.imgur.com/4rIgAKq.jpg)
 
 ## Understanding the dataset (EDA)
 A data scientist should have a thorough understanding of the dataset before using it from any machine learning task. Performance of any ML algorithm largely dependent on the input data.
 
 ### Exploratory Data Analysis (EDA)
-* Data do not have any missing value:  
-![Imgur](https://i.imgur.com/DIXJnYr.jpg) 
+* `Missing values`:Data do not have any missing value:  
+
+![Imgur](https://i.imgur.com/Jn2JC1X.jpg)
 
 * `Histograms`: Histograms can be used to visualize the distribution of the individual variables. As you can see, most of features are not following the normal distribution and are skewed. Histogram for different features: 
 
-![Imgur](https://i.imgur.com/WIVWr9M.jpg)
+![Imgur](https://i.imgur.com/yHu7QB6.jpg)
 
-* `Boxplot`: Boxplots are also useful in visualizing distribution of data. Information of existing outliers in the data can also be visualized through the boxplots. Boxplots of different features are as follows:  
+* `Boxplots`: Boxplots are also useful in visualizing distribution of data. Information of existing outliers in the data can also be visualized through the boxplots. Boxplots of different features are as follows:  
 
-![Imgur](https://i.imgur.com/lqUOHha.jpg)
+![Imgur](https://i.imgur.com/K61B9HK.jpg)
 
 * `Target distribution`: Distribution of target variable is close to the normal distribution. Figure below -  
 
-![Imgur](https://i.imgur.com/hUsG80G.jpg)
+![Imgur](https://i.imgur.com/2Z52rzK.jpg)
 
 * `Correlation Matrix`: This matrix is used to identify the correlation between the features. It can be seen that some of the variables are highly correlated with each other and will cause the problem of multicollinearity if any two highly correlated variables are added to the model. Correlation matrix is shown below -   
 
 ![Imgur](https://i.imgur.com/fdkDoUU.jpg)
 
 ## Getting Principal Components
-To the the principal components from the given data there are certain steps to follow - 
+To get the principal components from the given data there are certain steps to follow - 
 
-1. Compute the d-dimensional mean vector where d in the number of features in the datadet -
+**1. Compute the d-dimensional mean vector where d in the number of features in the datadet -**
 
 ![Imgur](https://i.imgur.com/fM7lw5V.jpg)
 
-2. Compute the covariance matrix of the dataset -  
+**2. Compute the covariance matrix of the dataset -**  
 
 ![Imgur](https://i.imgur.com/Rd1e5RR.jpg)
 
-shape of the matrix is 13 x 13 as te=he data have 13 features.
+The shape of the matrix is 13 x 13 as the data have 13 features.
 
-Graphical representation of correlation matrix -
+**Graphical representation of correlation matrix -**
+
 ![Imgur](https://i.imgur.com/R5EsMrS.jpg)
 
-3. Compute eigenvectors and corresponding eigenvalues -
+**3. Compute eigenvectors and corresponding eigenvalues -**
 
 ![Imgur](https://i.imgur.com/Jh1vfsF.jpg)
 
-4. Sort the eigenvectors by decreasing eigenvalues and choose k eigenvectors with the largest eigenvalue to form a d x k dimensional matrix W -
+**4a. Sort the eigenvectors by decreasing eigenvalues -**
 
-![Imgur](https://i.imgur.com/iNVbVAh.jpg)
+![Imgur](https://i.imgur.com/dKf2exe.jpg)
 
-![Imgur](https://i.imgur.com/NcplUks.jpg)
+**4b. Choose k eigenvectors with the largest eigenvalue to form a d x k dimensional matrix W -**
 
-5. Use this d x k eigenvector matrix to transform the samples onto the new subspace -
+![Imgur](https://i.imgur.com/URlZQHw.jpg)
+
+**5. Use this d x k eigenvector matrix to transform the samples onto the new subspace -**
 
 ![Imgur](https://i.imgur.com/CKLtv0G.jpg)
 
@@ -144,13 +152,13 @@ PCA is implemented using the sklearn.decomposition library for comparison purpos
 ![Imgur](https://i.imgur.com/9ZBFObb.jpg) 
 
 ## Visualizing PCA
-For visualization purpose target variable is been binned into 3 price range categories i.e. low (0-1st quartile), medium(1-3rd quartile) and high(3rd quartile & more). 
+For visualization purpose target variable is been binned into 3 price range categories i.e. low (0-1st quartile), medium (1-3rd quartile) and high (3rd quartile & more) -
 
 ![Imgur](https://i.imgur.com/k7mNpgh.jpg)
 
 
 ### Scree Plot
-Scree plot is a plot to visualize the cumulative percentage variance explained by the principal components. Two principal components cumulatively explaining approx. 60% variance of the target variable.
+Scree plot is used to visualize the cumulative percentage variance explained by the principal components. Here two principal components cumulatively explaining `approximately 60% variance` of the target variable.
 
 ![Imgur](https://i.imgur.com/WMm0w1j.jpg) 
 
